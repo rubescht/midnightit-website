@@ -2,7 +2,7 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Midnight IT | 24/7 IT Support &amp; Managed Services, Melbourne</title>
 <meta name="description" content="Since 2005, Midnight IT has kept Australian businesses running 24/7. Managed IT, cyber security and the full Code Black Group behind you. Call 1300 737 562.">
 <meta name="robots" content="noindex, nofollow">
@@ -32,6 +32,11 @@ a{color:#FF5A64}a:hover{color:#FF8A91}
 .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .cta{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);gap:40px;align-items:center}
 .foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.mbar{display:none}
+.mnav summary{list-style:none}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav[open] summary{border-color:#E8333B !important;background:#170D14}
+.mnav a:hover{background:#151B30}
 @media (max-width:1000px){
 .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
 .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -40,6 +45,16 @@ a{color:#FF5A64}a:hover{color:#FF8A91}
 }
 @media (max-width:760px){
 .wrap{padding:0 16px}
+.topbar,.navcta{display:none !important}
+.nav{flex-wrap:nowrap}
+.mact{display:flex !important}
+.navwrap{padding-top:14px !important;padding-bottom:14px !important}
+.hbtn{flex-direction:column;gap:12px !important}
+.hbtn a{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;min-height:54px;padding:14px 20px !important;font-size:16px !important;text-align:center}
+.mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(6,9,18,0.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid #232B44;box-shadow:0 -14px 30px rgba(0,0,0,0.5)}
+.ctabtn{width:100%;min-height:54px}
+.tagline{text-align:center}
+body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 .hero,.two,.cta,.scen,.quotes,.svc,.flow,.steps,.foot{grid-template-columns:minmax(0,1fr)}
 .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
 .eco{grid-template-columns:minmax(0,1fr);grid-template-areas:"h" "a" "b" "c" "d" "e" "f"}
@@ -81,9 +96,13 @@ h2{font-size:32px !important}
 }
 @media (prefers-reduced-motion:reduce){.sw-hand,.sw-sweep,.sw-sub,.sw-crown,.hub3d,.sw3d svg,.floor{animation:none}}
 
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+[id]{scroll-margin-top:16px}
 .js .rv{opacity:0;transform:perspective(1200px) rotateX(12deg) translateY(48px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+html,body{overflow-x:clip}
+@media (max-width:760px){.js .rv{transform:translateY(36px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}}
 </style>
 
 </head>
@@ -91,7 +110,7 @@ h2{font-size:32px !important}
 <div style="background: #060912; color: #E8ECF5; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6; width: 100%;">
 
 <!-- Support bar -->
-<div style="background: #0D1220; border-bottom: 1px solid #1C2338;">
+<div class="topbar" style="background: #0D1220; border-bottom: 1px solid #1C2338;">
 <div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 10px; padding-bottom: 10px; font-size: 14px;">
 <span class="barnote" style="color: #A9B3C8;">Existing client? Get help right now — day or night.</span>
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
@@ -103,7 +122,7 @@ h2{font-size:32px !important}
 </div>
 
 <!-- Nav -->
-<div class="wrap" style="padding-top: 22px; padding-bottom: 22px;">
+<div class="wrap navwrap" style="padding-top: 22px; padding-bottom: 22px; position: relative; z-index: 30;">
 <div class="nav">
 <a href="/" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
 <img src="assets/midnight-it-wordmark.png" alt="Midnight IT" style="height: 30px; width: auto; display: block;">
@@ -116,7 +135,27 @@ h2{font-size:32px !important}
 <a href="#how" style="color: #E8ECF5; text-decoration: none;">How we work</a>
 <a href="#contact" style="color: #E8ECF5; text-decoration: none;">Contact</a>
 </div>
-<a href="#contact" style="background: #E8333B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; font-size: 15px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center;">Book a free IT health check</a>
+<a class="navcta" href="#contact" style="background: #E8333B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; font-size: 15px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center;">Book a free IT health check</a>
+<div class="mact" style="display: none; align-items: center; gap: 10px;">
+<a href="tel:1300737562" aria-label="Call 24/7 support on 1300 737 562" style="width: 46px; height: 46px; border-radius: 14px; background: #E8333B; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(232,51,59,0.35);">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+</a>
+<details class="mnav" style="position: relative;">
+<summary aria-label="Open menu" style="width: 46px; height: 46px; box-sizing: border-box; border-radius: 14px; border: 1px solid #2A3350; background: #0F1426; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+</summary>
+<div style="position: absolute; right: 0; top: 56px; width: 250px; box-sizing: border-box; background: #0F1426; border: 1px solid #232B44; border-radius: 18px; padding: 8px; display: flex; flex-direction: column; box-shadow: 0 30px 60px rgba(0,0,0,0.75); z-index: 60;">
+<a href="#services" style="color: #E8ECF5; text-decoration: none; padding: 13px 14px; border-radius: 12px; font-size: 16px;">Services</a>
+<a href="#group" style="color: #E8ECF5; text-decoration: none; padding: 13px 14px; border-radius: 12px; font-size: 16px;">The Group</a>
+<a href="#why" style="color: #E8ECF5; text-decoration: none; padding: 13px 14px; border-radius: 12px; font-size: 16px;">Why Midnight</a>
+<a href="#how" style="color: #E8ECF5; text-decoration: none; padding: 13px 14px; border-radius: 12px; font-size: 16px;">How we work</a>
+<a href="#contact" style="color: #E8ECF5; text-decoration: none; padding: 13px 14px; border-radius: 12px; font-size: 16px;">Contact</a>
+<div style="height: 1px; background: #232B44; margin: 6px 8px;"></div>
+<a href="tel:1300737562" style="color: #A9B3C8; text-decoration: none; padding: 11px 14px; border-radius: 12px; font-size: 14px;">Remote support</a>
+<a href="https://midnightit.com.au/submit-a-ticket/" style="color: #A9B3C8; text-decoration: none; padding: 11px 14px; border-radius: 12px; font-size: 14px;">Submit a request</a>
+</div>
+</details>
+</div>
 </div>
 </div>
 
@@ -135,11 +174,11 @@ Engineers on shift right now · 24/7/365
 </div>
 <h1 class="big" style="font-family: Sora, sans-serif; font-weight: 800; font-size: 68px; line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 24px 0; color: #FFFFFF;">IT that never sleeps.<br><span style="color: #E8333B;">Problems solved the smarter way.</span></h1>
 <p style="font-size: 20px; color: #C3CBDD; margin: 0 0 36px 0; max-width: 580px;">Since 2005, Midnight IT has kept Australian businesses running around the clock. Backed by the full Code Black Group — cyber security, connectivity, surveillance, web and AI — we fix the whole problem in one call, not five.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 14px;">
+<div class="hbtn" style="display: flex; flex-wrap: wrap; gap: 14px;">
 <a href="#contact" style="background: #E8333B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 16px 28px; border-radius: 999px; font-size: 16px;">Book a free IT health check</a>
 <a href="tel:1300737562" style="border: 1px solid #3A4466; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 16px 28px; border-radius: 999px; font-size: 16px;">Call 1300 737 562</a>
 </div>
-<div style="margin-top: 36px; font-family: Sora, sans-serif; font-weight: 600; font-size: 15px; color: #A9B3C8; letter-spacing: 0.04em;">DO IT ONCE. DO IT RIGHT.</div>
+<div class="tagline" style="margin-top: 36px; font-family: Sora, sans-serif; font-weight: 600; font-size: 15px; color: #A9B3C8; letter-spacing: 0.04em;">DO IT ONCE. DO IT RIGHT.</div>
 </div>
 <div class="sw3d" style="display: flex; justify-content: center;">
 <svg class="sw" viewBox="0 0 400 400" style="width: 100%; max-width: 440px; height: auto; opacity: 0.5;" role="img" aria-label="An animated stopwatch sweeping through all 24 hours: Midnight IT support runs every hour of every day">
@@ -513,7 +552,7 @@ Engineers on shift right now · 24/7/365
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #C3CBDD;">Full name<input name="name" type="text" autocomplete="name" required style="background: #0B1020; border: 1px solid #2A3350; border-radius: 12px; padding: 13px 14px; color: #FFFFFF; font-size: 15px;"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #C3CBDD;">Work email<input name="email" type="email" autocomplete="email" required style="background: #0B1020; border: 1px solid #2A3350; border-radius: 12px; padding: 13px 14px; color: #FFFFFF; font-size: 15px;"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #C3CBDD;">What's keeping you up at night?<textarea name="msg" rows="3" style="background: #0B1020; border: 1px solid #2A3350; border-radius: 12px; padding: 13px 14px; color: #FFFFFF; font-size: 15px; font-family: Inter, sans-serif;"></textarea></label>
-<button type="submit" style="background: #E8333B; color: #FFFFFF; border: none; border-radius: 999px; padding: 15px 24px; font-size: 16px; font-weight: 600; cursor: pointer; min-height: 48px;">Book my free health check</button>
+<button class="ctabtn" type="submit" style="background: #E8333B; color: #FFFFFF; border: none; border-radius: 999px; padding: 15px 24px; font-size: 16px; font-weight: 600; cursor: pointer; min-height: 48px; box-shadow: 0 10px 24px rgba(232,51,59,0.35);">Book my free health check</button>
 </form>
 </div>
 </div>
@@ -546,6 +585,14 @@ Engineers on shift right now · 24/7/365
 </div>
 </div>
 
+<!-- Mobile sticky action bar -->
+<div class="mbar">
+<a href="tel:1300737562" style="flex: 1 1 0; min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #3A4466; background: #0F1426; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 14px;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+Call 24/7
+</a>
+<a href="#contact" style="flex: 1.3 1 0; min-height: 50px; display: flex; align-items: center; justify-content: center; background: #E8333B; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 14px; box-shadow: 0 8px 22px rgba(232,51,59,0.4);">Book health check</a>
+</div>
 </div>
 
 <script>
@@ -557,9 +604,11 @@ Engineers on shift right now · 24/7/365
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(el){io.observe(el)});
   } else { els.forEach(function(el){el.classList.add('in')}); }
+  document.querySelectorAll('.mnav a').forEach(function(a){a.addEventListener('click',function(){var d=a.closest('details');if(d)d.open=false;});});
+  document.addEventListener('click',function(e){document.querySelectorAll('.mnav[open]').forEach(function(d){if(!d.contains(e.target))d.open=false;});});
   var f=document.getElementById('hc');
   if(f){f.addEventListener('submit',function(ev){ev.preventDefault();
-    var n=f.name.value||'',e=f.email.value||'',m=f.msg.value||'';
+    var n=f.elements.name.value||'',e=f.elements.email.value||'',m=f.elements.msg.value||'';
     var body='Name: '+n+'\nEmail: '+e+'\n\n'+m;
     location.href='mailto:quotes@midnightit.com.au?subject='+encodeURIComponent('Free IT health check request - '+n)+'&body='+encodeURIComponent(body);
   });}
